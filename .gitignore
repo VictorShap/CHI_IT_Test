@@ -1,0 +1,76 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio
+.vscode/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## DotCover
+*.dotCover
+
+## Build Logs
+*.log
+
+## Others
+*.tmp
+*.bak
+*.swp
+*.ncb
+*.cache
+*.dbmdl
+*.db
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.assets.json
+*.nuspec
+*.psmdcp
+*.cache
+
+# if using packages folder
+**/packages/*/tools/
+
+## DotNet CLI
+.project/
+*.deps.json
+*.runtimeconfig.json
+
+## Environment settings
+.env
+
+## Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## macOS
+.DS_Store
+
+## Logs
+*.log
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml

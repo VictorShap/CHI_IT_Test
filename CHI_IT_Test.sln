@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHI_IT_Test", "CHI_IT_Test\CHI_IT_Test.csproj", "{EF539610-7607-40EA-81F6-3A25C565EF38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF539610-7607-40EA-81F6-3A25C565EF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF539610-7607-40EA-81F6-3A25C565EF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF539610-7607-40EA-81F6-3A25C565EF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF539610-7607-40EA-81F6-3A25C565EF38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F2FCE3F-C8DC-4D1F-B1B3-4315E5F5B6FF}
+	EndGlobalSection
+EndGlobal
