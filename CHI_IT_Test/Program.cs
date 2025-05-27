@@ -3,10 +3,18 @@
     class Program
     {
         public static void Main(string[] args)
-        { 
-            List<Product> products = CreateProducts();
+        {
+            var initialCatalog = new List<Product>
+        {
+             new Product("Laptop", 999.99m),
+             new Product("Smartphone", 499.50m),
+             new Product("Headphones", 149.95m),
+             new Product("Speakers", 200.95m),
+             new Product("Keyboard", 100.99m)
+         };
 
-            DisplayProducts(products);
+            var productService = new ProductService(initialCatalog);
+            var cartManager = new CartManager(productService);
         }
 
         public static List<Product> CreateProducts()
@@ -21,17 +29,6 @@
 
             return products;
         }
-
-        public static void DisplayProducts(List<Product> products)
-        {
-            Console.WriteLine("List of available products:");
-
-            foreach (Product product in products)
-            {
-                Console.WriteLine("Name: " + product.Name + " " + "Price: " + product.Price);
-            }
-        }
-
         public static void SelectProducts()
         {
             Console.WriteLine("Select the product by wrtiting its name. Type \"0\" in order to proceed to enter your budget");
@@ -61,6 +58,15 @@
 
                         break;
                 }
+            }
+        }
+        public static void DisplayProducts(List<Product> products)
+        {
+            Console.WriteLine("List of available products:");
+
+            foreach (Product product in products)
+            {
+                Console.WriteLine("Name: " + product.Name + " " + "Price: " + product.Price);
             }
         }
     }
