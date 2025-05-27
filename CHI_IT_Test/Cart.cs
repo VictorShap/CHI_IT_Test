@@ -2,26 +2,28 @@
 {
     internal class Cart
     {
-        private readonly List<Product> products;
+        private readonly List<Product> _products;
+
+        public int ProductCount { get { return _products.Count; } }
 
         public Cart()
         {
-            products = new List<Product>();
+            _products = new List<Product>();
         }
 
         public Cart(List<Product> products)
         {
-            this.products = products;
+            _products = products;
         }
 
         public void AddProduct(Product product)
         {
-            products.Add(product);
+            _products.Add(product);
         }
 
         public decimal GetTotalAmount()
         {
-            return 0;
+            return _products.Sum(p => p.Price);
         }
     }
 }

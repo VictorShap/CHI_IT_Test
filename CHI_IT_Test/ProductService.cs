@@ -2,13 +2,18 @@
 {
     internal class ProductService
     {
-        private readonly List<Product> catalog;
+        private readonly List<Product> _catalog;
 
-        public IEnumerable<Product> Catalog { get { return catalog; } }
+        public IEnumerable<Product> Catalog { get { return _catalog; } }
 
         public ProductService(List<Product> catalog)
         {
-            this.catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+            _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+        }
+
+        public Product? FindByName(string name)
+        {
+            return Catalog.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));  
         }
     }
 }
