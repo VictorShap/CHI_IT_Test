@@ -1,4 +1,8 @@
-﻿namespace CHI_IT_Test
+﻿using CHI_IT_Test.Cart;
+using CHI_IT_Test.Models;
+using CHI_IT_Test.Services;
+
+namespace CHI_IT_Test
 {
     class Program
     {

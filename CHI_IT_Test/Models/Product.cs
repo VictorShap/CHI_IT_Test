@@ -1,4 +1,4 @@
-﻿namespace CHI_IT_Test
+﻿namespace CHI_IT_Test.Models
 {
     public class Product
     {

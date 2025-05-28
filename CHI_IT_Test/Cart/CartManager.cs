@@ -1,4 +1,7 @@
-﻿namespace CHI_IT_Test
+﻿using CHI_IT_Test.Models;
+using CHI_IT_Test.Services;
+
+namespace CHI_IT_Test.Cart
 {
     internal class CartManager : ICartManager
     {
@@ -38,7 +41,7 @@
 
                 string productName = Console.ReadLine()?.Trim();
 
-                if (String.IsNullOrWhiteSpace(productName))
+                if (string.IsNullOrWhiteSpace(productName))
                 {
                     continue;
                 }
@@ -53,7 +56,7 @@
                     Console.WriteLine("You have not selected any item. Please, enter an item name, if you want to select any or leave empty to skip");
                     productName = Console.ReadLine()?.Trim();
 
-                    if (String.IsNullOrEmpty(productName))
+                    if (string.IsNullOrEmpty(productName))
                     {
                         break;
                     }
@@ -82,13 +85,13 @@
 
                 string budget = Console.ReadLine()?.Trim();
 
-                if (String.IsNullOrWhiteSpace(budget))
+                if (string.IsNullOrWhiteSpace(budget))
                 {
                     Console.WriteLine("It seems it was an empty string, please try again");
                 }
                 else
                 {
-                    if (Decimal.TryParse(budget, out decimal budgetDecimal) && budgetDecimal >= 0)
+                    if (decimal.TryParse(budget, out decimal budgetDecimal) && budgetDecimal >= 0)
                     {
                         DisplayBudgetComparison(budgetDecimal);
 

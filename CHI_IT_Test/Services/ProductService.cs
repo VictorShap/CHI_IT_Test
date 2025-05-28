@@ -1,4 +1,6 @@
-﻿namespace CHI_IT_Test
+﻿using CHI_IT_Test.Models;
+
+namespace CHI_IT_Test.Services
 {
     internal class ProductService : IProductService
     {
