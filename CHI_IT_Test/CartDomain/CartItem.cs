@@ -1,4 +1,6 @@
-﻿namespace CHI_IT_Test.Models
+﻿using CHI_IT_Test.Models;
+
+namespace CHI_IT_Test.CartDomain
 {
     public class CartItem
     {
@@ -30,7 +32,7 @@
 
         public override string ToString()
         {
-            return $"Item name: {Product.Name} Item price: {Product.Price} Item quantity: {Quantity} Item total: {Total}";
+            return Product.ToString() + $" Item quantity: {Quantity} Item total: {Total}";
         }
     }
 }

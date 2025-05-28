@@ -1,14 +1,14 @@
-﻿using CHI_IT_Test.Models;
-using CHI_IT_Test.Services;
+﻿using CHI_IT_Test.CartDomain;
+using CHI_IT_Test.Models;
 
-namespace CHI_IT_Test.Cart
+namespace CHI_IT_Test.Services
 {
-    internal class CartManager : ICartManager
+    internal class CartInteractionService : ICartManager
     {
         private readonly IProductService _productService;
         private readonly ICart _cart;
 
-        public CartManager(IProductService productService, ICart cart)
+        public CartInteractionService(IProductService productService, ICart cart)
         {
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _cart = cart ?? throw new ArgumentNullException(nameof(cart));
@@ -43,6 +43,8 @@ namespace CHI_IT_Test.Cart
 
                 if (string.IsNullOrWhiteSpace(productName))
                 {
+                    Console.WriteLine("There is no such item, please check the spelling and try again.");
+
                     continue;
                 }
 

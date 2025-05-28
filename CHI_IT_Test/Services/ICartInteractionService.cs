@@ -1,4 +1,4 @@
-﻿namespace CHI_IT_Test.Cart
+﻿namespace CHI_IT_Test.Services
 {
     public interface ICartManager
     {

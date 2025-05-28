@@ -1,6 +1,6 @@
 ﻿using CHI_IT_Test.Models;
 
-namespace CHI_IT_Test.Cart
+namespace CHI_IT_Test.CartDomain
 {
     internal class Cart : ICart
     {
@@ -14,9 +14,9 @@ namespace CHI_IT_Test.Cart
             _cartItems = new List<CartItem>();
         }
 
-        public Cart(List<CartItem> products)
+        public Cart(List<CartItem> cartItems)
         {
-            _cartItems = products ?? throw new ArgumentNullException(nameof(products));
+            _cartItems = cartItems ?? throw new ArgumentNullException(nameof(cartItems));
         }
 
         public void AddProduct(Product product)

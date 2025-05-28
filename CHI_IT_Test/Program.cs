@@ -1,4 +1,4 @@
-﻿using CHI_IT_Test.Cart;
+﻿using CHI_IT_Test.CartDomain;
 using CHI_IT_Test.Models;
 using CHI_IT_Test.Services;
 
@@ -19,7 +19,7 @@ namespace CHI_IT_Test
 
             IProductService productService = new ProductService(initialCatalog);
             ICart cart = new Cart();
-            ICartManager cartManager = new CartManager(productService, cart);
+            ICartManager cartManager = new CartInteractionService(productService, cart);
 
             cartManager.Run();
         }
