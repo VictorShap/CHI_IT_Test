@@ -1,10 +1,10 @@
 ﻿namespace CHI_IT_Test
 {
-    internal class ProductService
+    internal class ProductService : IProductService
     {
         private readonly List<Product> _catalog;
 
-        public IEnumerable<Product> Catalog { get { return _catalog; } }
+        public IReadOnlyCollection<Product> Catalog { get { return _catalog; } }
 
         public ProductService(List<Product> catalog)
         {

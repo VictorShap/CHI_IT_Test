@@ -13,9 +13,9 @@
              new Product("Keyboard", 100.99m)
          };
 
-            var cart = new Cart();
-            var productService = new ProductService(initialCatalog);
-            var cartManager = new CartManager(productService, cart);
+            IProductService productService = new ProductService(initialCatalog);
+            ICart cart = new Cart();
+            ICartManager cartManager = new CartManager(productService, cart);
 
             cartManager.Run();
         }

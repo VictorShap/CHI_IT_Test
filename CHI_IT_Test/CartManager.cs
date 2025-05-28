@@ -1,11 +1,11 @@
 ﻿namespace CHI_IT_Test
 {
-    internal class CartManager
+    internal class CartManager : ICartManager
     {
-        private readonly ProductService _productService;
-        private readonly Cart _cart;
+        private readonly IProductService _productService;
+        private readonly ICart _cart;
 
-        public CartManager(ProductService productService, Cart cart)
+        public CartManager(IProductService productService, ICart cart)
         {
             _productService = productService ?? throw new ArgumentNullException(nameof(productService));
             _cart = cart ?? throw new ArgumentNullException(nameof(cart));
@@ -16,6 +16,7 @@
             DisplayProducts();
             SelectProducts();
             AskForBudget();
+            DisplayCartItems();
         }
 
         private void DisplayProducts()
@@ -35,7 +36,7 @@
             {
                 Console.WriteLine("Select the product by wrtiting its name. Type \"0\" in order to proceed to enter your budget");
 
-                string productName = Console.ReadLine();
+                string productName = Console.ReadLine()?.Trim();
 
                 if (String.IsNullOrWhiteSpace(productName))
                 {
@@ -44,19 +45,17 @@
 
                 if (productName == "0")
                 {
-                    if (_cart.ProductCount != 0)
+                    if (!_cart.IsCartEmpty)
                     {
                         break;
                     }
-                    else
-                    {
-                        Console.WriteLine("You have not selected any item. Please, enter an item name, if you want to select any or leave empty to skip");
-                        productName = Console.ReadLine();
 
-                        if (String.IsNullOrEmpty(productName))
-                        {
-                            break;
-                        }
+                    Console.WriteLine("You have not selected any item. Please, enter an item name, if you want to select any or leave empty to skip");
+                    productName = Console.ReadLine()?.Trim();
+
+                    if (String.IsNullOrEmpty(productName))
+                    {
+                        break;
                     }
                 }
 
@@ -81,7 +80,7 @@
             {
                 Console.WriteLine("Please enter your budget, so that we will be able to calculate if it exceeds the total");
 
-                string budget = Console.ReadLine();
+                string budget = Console.ReadLine()?.Trim();
 
                 if (String.IsNullOrWhiteSpace(budget))
                 {
@@ -105,13 +104,25 @@
 
         private void DisplayBudgetComparison(decimal budget)
         {
-            if (budget >= _cart.GetTotalAmount())
+            decimal total = _cart.GetTotalAmount();
+
+            if (budget >= total)
             {
-                Console.WriteLine($"Great! Your budget({budget}) suffices the total of your cart({_cart.GetTotalAmount()})");
+                Console.WriteLine($"Great! Your budget({budget}) suffices the total of your cart({total})");
             }
             else
             {
-                Console.WriteLine($"Unfortunately, your budget({budget}) does not suffice the total of your cart({_cart.GetTotalAmount()})");
+                Console.WriteLine($"Unfortunately, your budget({budget}) does not suffice the total of your cart({total})");
+            }
+        }
+
+        private void DisplayCartItems()
+        {
+            Console.WriteLine("Your cart items:");
+
+            foreach (var cartItem in _cart.CartItems)
+            {
+                Console.WriteLine(cartItem);
             }
         }
     }

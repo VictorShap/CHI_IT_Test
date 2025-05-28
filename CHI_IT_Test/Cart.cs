@@ -1,29 +1,39 @@
 ﻿namespace CHI_IT_Test
 {
-    internal class Cart
+    internal class Cart : ICart
     {
-        private readonly List<Product> _products;
+        private readonly List<CartItem> _cartItems;
 
-        public int ProductCount { get { return _products.Count; } }
+        public bool IsCartEmpty => _cartItems.Count == 0;
+        public IReadOnlyCollection<CartItem> CartItems { get { return _cartItems; } }
 
         public Cart()
         {
-            _products = new List<Product>();
+            _cartItems = new List<CartItem>();
         }
 
-        public Cart(List<Product> products)
+        public Cart(List<CartItem> products)
         {
-            _products = products;
+            _cartItems = products ?? throw new ArgumentNullException(nameof(products));
         }
 
         public void AddProduct(Product product)
         {
-            _products.Add(product);
+            CartItem item = _cartItems.FirstOrDefault(i => i.Product.Name == product.Name);
+
+            if (item != null)
+            {
+                item.IncreaseQuantity();
+            }
+            else
+            {
+                _cartItems.Add(new CartItem(product));
+            }
         }
 
         public decimal GetTotalAmount()
         {
-            return _products.Sum(p => p.Price);
+            return _cartItems.Sum(i => i.Total);
         }
     }
 }
